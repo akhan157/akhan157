@@ -2,7 +2,7 @@
 
 BS Mechanical Engineering — Binghamton University · Queens, NY
 
-I build simulation tools. My main project is [RecoverySys](https://akhan157.github.io/RecoverySys/), a dual-deploy recovery bay configurator for high-power rocketry — physics-based flight simulator, 189-part component catalog, Monte Carlo wind drift analysis.
+I build simulation tools. My main project is [Astraea](https://astraea-5e2.pages.dev/), an open-source rocket engineering workstation — 3D airframe design, Rust/WASM 6-DOF flight simulation, Monte Carlo dispersion, and comparison against real flight logs. I also build [RecoverySys](https://akhan157.github.io/RecoverySys/), a local-first recovery-bay planner, and [Plainhand](https://github.com/akhan157/Plainhand), a job-application assistant that runs on your own computer.
 
 ---
 
@@ -18,7 +18,7 @@ I build simulation tools. My main project is [RecoverySys](https://akhan157.gith
 
 ## What I'm building toward
 
-My simulation work sits at the edge of where physics-based models meet machine learning — surrogate models, physics-informed neural networks, fast approximate simulation. I'm starting to build in that direction now, using RecoverySys's Monte Carlo engine as a foundation: generating training data from the physics simulator and exploring ML-based approximations on top of it. Early days, but that's the direction.
+My simulation work sits at the edge of where physics-based models meet machine learning — surrogate models, physics-informed neural networks, fast approximate simulation. recoverysys-surrogate is now shipped: a neural network trained on 2,000 physics-engine simulations that predicts flight outputs in about 2 µs per sample, roughly 22,000× faster than the solver. That's the direction.
 
 ---
 
@@ -32,9 +32,15 @@ My simulation work sits at the edge of where physics-based models meet machine l
 
 ## Projects
 
-**[RecoverySys](https://github.com/akhan157/RecoverySys)** — Rocketry recovery bay designer. RK45 flight simulation, Monte Carlo scatter, 189-part catalog, Leaflet map overlay. [Live →](https://akhan157.github.io/RecoverySys/)
+**[Astraea](https://github.com/akhan157/astraea)** — Open-source rocket engineering workstation: 3D airframe design, Rust/WASM 6-DOF flight simulation, Monte Carlo dispersion, and comparison against real flight logs. 0.10 beta; validation in progress. [Live →](https://astraea-5e2.pages.dev/)
 
-**[recoverysys-engine](https://github.com/akhan157/recoverysys-engine)** — Python simulation backend powering RecoverySys. RK45 ODE solver, ISA atmosphere model, dual-deploy descent, Monte Carlo scatter. FastAPI service.
+**[RecoverySys](https://github.com/akhan157/RecoverySys)** — Recovery-first, local-first recovery-bay planning and flight-estimation tool for high-power rocketry. 225-part catalog with compatibility and load-path checks, Monte Carlo dispersion, and a printable recovery brief. [Live →](https://akhan157.github.io/RecoverySys/)
+
+**[Plainhand](https://github.com/akhan157/Plainhand)** — Job-application assistant that runs on your computer with your own AI account. Builds a profile in your own words, tailors resumes and cover letters, and fills application forms; you review and submit every application.
+
+**[recoverysys-engine](https://github.com/akhan157/recoverysys-engine)** — High-fidelity recovery simulation engine for high-power rocketry. Python, SciPy, FastAPI.
+
+**[recoverysys-surrogate](https://github.com/akhan157/recoverysys-surrogate)** — Neural network surrogate model for the RecoverySys engine. Trained on 2,000 physics-engine simulations; about 2 µs per sample versus ~45 ms for the solver, a ~22,000× speedup.
 
 ---
 
